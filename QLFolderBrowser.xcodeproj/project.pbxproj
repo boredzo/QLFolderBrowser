@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31D4D9C1160420BB00855CA9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D4D9C0160420BB00855CA9 /* Cocoa.framework */; };
+		31D4D9CB160420BB00855CA9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31D4D9C9160420BB00855CA9 /* InfoPlist.strings */; };
+		31D4D9CD160420BB00855CA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D4D9CC160420BB00855CA9 /* main.m */; };
+		31D4D9D1160420BB00855CA9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 31D4D9CF160420BB00855CA9 /* Credits.rtf */; };
+		31D4D9D4160420BB00855CA9 /* PRHDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D4D9D3160420BB00855CA9 /* PRHDocument.m */; };
+		31D4D9D7160420BB00855CA9 /* PRHDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D4D9D5160420BB00855CA9 /* PRHDocument.xib */; };
+		31D4D9DA160420BB00855CA9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D4D9D8160420BB00855CA9 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		31D4D9BC160420BB00855CA9 /* QLFolderBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLFolderBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D4D9C0160420BB00855CA9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		31D4D9C3160420BB00855CA9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		31D4D9C4160420BB00855CA9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		31D4D9C5160420BB00855CA9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		31D4D9C8160420BB00855CA9 /* QLFolderBrowser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QLFolderBrowser-Info.plist"; sourceTree = "<group>"; };
+		31D4D9CA160420BB00855CA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		31D4D9CC160420BB00855CA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		31D4D9CE160420BB00855CA9 /* QLFolderBrowser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QLFolderBrowser-Prefix.pch"; sourceTree = "<group>"; };
+		31D4D9D0160420BB00855CA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		31D4D9D2160420BB00855CA9 /* PRHDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRHDocument.h; sourceTree = "<group>"; };
+		31D4D9D3160420BB00855CA9 /* PRHDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRHDocument.m; sourceTree = "<group>"; };
+		31D4D9D6160420BB00855CA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PRHDocument.xib; sourceTree = "<group>"; };
+		31D4D9D9160420BB00855CA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31D4D9B9160420BB00855CA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D4D9C1160420BB00855CA9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31D4D9B1160420BB00855CA9 = {
+			isa = PBXGroup;
+			children = (
+				31D4D9C6160420BB00855CA9 /* QLFolderBrowser */,
+				31D4D9BF160420BB00855CA9 /* Frameworks */,
+				31D4D9BD160420BB00855CA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		31D4D9BD160420BB00855CA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31D4D9BC160420BB00855CA9 /* QLFolderBrowser.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31D4D9BF160420BB00855CA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31D4D9C0160420BB00855CA9 /* Cocoa.framework */,
+				31D4D9C2160420BB00855CA9 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31D4D9C2160420BB00855CA9 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31D4D9C3160420BB00855CA9 /* AppKit.framework */,
+				31D4D9C4160420BB00855CA9 /* CoreData.framework */,
+				31D4D9C5160420BB00855CA9 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		31D4D9C6160420BB00855CA9 /* QLFolderBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				31D4D9D2160420BB00855CA9 /* PRHDocument.h */,
+				31D4D9D3160420BB00855CA9 /* PRHDocument.m */,
+				31D4D9D5160420BB00855CA9 /* PRHDocument.xib */,
+				31D4D9D8160420BB00855CA9 /* MainMenu.xib */,
+				31D4D9C7160420BB00855CA9 /* Supporting Files */,
+			);
+			path = QLFolderBrowser;
+			sourceTree = "<group>";
+		};
+		31D4D9C7160420BB00855CA9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				31D4D9C8160420BB00855CA9 /* QLFolderBrowser-Info.plist */,
+				31D4D9C9160420BB00855CA9 /* InfoPlist.strings */,
+				31D4D9CC160420BB00855CA9 /* main.m */,
+				31D4D9CE160420BB00855CA9 /* QLFolderBrowser-Prefix.pch */,
+				31D4D9CF160420BB00855CA9 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		31D4D9BB160420BB00855CA9 /* QLFolderBrowser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31D4D9DD160420BB00855CA9 /* Build configuration list for PBXNativeTarget "QLFolderBrowser" */;
+			buildPhases = (
+				31D4D9B8160420BB00855CA9 /* Sources */,
+				31D4D9B9160420BB00855CA9 /* Frameworks */,
+				31D4D9BA160420BB00855CA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QLFolderBrowser;
+			productName = QLFolderBrowser;
+			productReference = 31D4D9BC160420BB00855CA9 /* QLFolderBrowser.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		31D4D9B3160420BB00855CA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PRH;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Peter Hosey";
+			};
+			buildConfigurationList = 31D4D9B6160420BB00855CA9 /* Build configuration list for PBXProject "QLFolderBrowser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 31D4D9B1160420BB00855CA9;
+			productRefGroup = 31D4D9BD160420BB00855CA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				31D4D9BB160420BB00855CA9 /* QLFolderBrowser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31D4D9BA160420BB00855CA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D4D9CB160420BB00855CA9 /* InfoPlist.strings in Resources */,
+				31D4D9D1160420BB00855CA9 /* Credits.rtf in Resources */,
+				31D4D9D7160420BB00855CA9 /* PRHDocument.xib in Resources */,
+				31D4D9DA160420BB00855CA9 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31D4D9B8160420BB00855CA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D4D9CD160420BB00855CA9 /* main.m in Sources */,
+				31D4D9D4160420BB00855CA9 /* PRHDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		31D4D9C9160420BB00855CA9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31D4D9CA160420BB00855CA9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		31D4D9CF160420BB00855CA9 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31D4D9D0160420BB00855CA9 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		31D4D9D5160420BB00855CA9 /* PRHDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31D4D9D6160420BB00855CA9 /* en */,
+			);
+			name = PRHDocument.xib;
+			sourceTree = "<group>";
+		};
+		31D4D9D8160420BB00855CA9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31D4D9D9160420BB00855CA9 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		31D4D9DB160420BB00855CA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		31D4D9DC160420BB00855CA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		31D4D9DE160420BB00855CA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QLFolderBrowser/QLFolderBrowser-Prefix.pch";
+				INFOPLIST_FILE = "QLFolderBrowser/QLFolderBrowser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		31D4D9DF160420BB00855CA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QLFolderBrowser/QLFolderBrowser-Prefix.pch";
+				INFOPLIST_FILE = "QLFolderBrowser/QLFolderBrowser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31D4D9B6160420BB00855CA9 /* Build configuration list for PBXProject "QLFolderBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31D4D9DB160420BB00855CA9 /* Debug */,
+				31D4D9DC160420BB00855CA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31D4D9DD160420BB00855CA9 /* Build configuration list for PBXNativeTarget "QLFolderBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31D4D9DE160420BB00855CA9 /* Debug */,
+				31D4D9DF160420BB00855CA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 31D4D9B3160420BB00855CA9 /* Project object */;
+}
