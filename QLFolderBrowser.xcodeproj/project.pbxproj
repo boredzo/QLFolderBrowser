@@ -14,6 +14,7 @@
 		31D4D9D4160420BB00855CA9 /* PRHDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D4D9D3160420BB00855CA9 /* PRHDocument.m */; };
 		31D4D9D7160420BB00855CA9 /* PRHDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D4D9D5160420BB00855CA9 /* PRHDocument.xib */; };
 		31D4D9DA160420BB00855CA9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D4D9D8160420BB00855CA9 /* MainMenu.xib */; };
+		31D4D9E1160424B300855CA9 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D4D9E0160424B300855CA9 /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		31D4D9D3160420BB00855CA9 /* PRHDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRHDocument.m; sourceTree = "<group>"; };
 		31D4D9D6160420BB00855CA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PRHDocument.xib; sourceTree = "<group>"; };
 		31D4D9D9160420BB00855CA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		31D4D9E0160424B300855CA9 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D4D9E1160424B300855CA9 /* Quartz.framework in Frameworks */,
 				31D4D9C1160420BB00855CA9 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				31D4D9C0160420BB00855CA9 /* Cocoa.framework */,
+				31D4D9E0160424B300855CA9 /* Quartz.framework */,
 				31D4D9C2160420BB00855CA9 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -84,10 +88,10 @@
 		31D4D9C6160420BB00855CA9 /* QLFolderBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				31D4D9D8160420BB00855CA9 /* MainMenu.xib */,
 				31D4D9D2160420BB00855CA9 /* PRHDocument.h */,
 				31D4D9D3160420BB00855CA9 /* PRHDocument.m */,
 				31D4D9D5160420BB00855CA9 /* PRHDocument.xib */,
-				31D4D9D8160420BB00855CA9 /* MainMenu.xib */,
 				31D4D9C7160420BB00855CA9 /* Supporting Files */,
 			);
 			path = QLFolderBrowser;

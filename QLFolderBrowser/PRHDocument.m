@@ -8,52 +8,131 @@
 
 #import "PRHDocument.h"
 
-@implementation PRHDocument
+#import <Quartz/Quartz.h>
+#import <objc/runtime.h>
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-		// Add your subclass-specific initialization here.
-    }
-    return self;
+@interface PRHDocument () <NSTableViewDataSource, NSTableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
+
+@property(copy) NSArray *itemURLs;
+@property NSInteger currentSelectionIndex;
+
+@property (weak) IBOutlet NSTableView *tableView;
+
+- (IBAction)showQuickLook:(id)sender;
+
+@end
+
+@implementation PRHDocument
+@synthesize tableView = _tableView;
+
+- (id)init {
+	self = [super init];
+	if (self) {
+	}
+	return self;
 }
 
-- (NSString *)windowNibName
-{
-	// Override returning the nib file name of the document
-	// If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
+- (NSString *)windowNibName {
 	return @"PRHDocument";
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
+- (void)windowControllerDidLoadNib:(NSWindowController *)aController {
 	[super windowControllerDidLoadNib:aController];
-	// Add any code here that needs to be executed once the windowController has loaded the document's window.
 }
 
-+ (BOOL)autosavesInPlace
-{
++ (BOOL)autosavesInPlace {
     return YES;
 }
 
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
-{
-	// Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
-	// You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-	NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-	@throw exception;
-	return nil;
+- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
+	self.itemURLs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:url
+												  includingPropertiesForKeys:@[ NSURLNameKey, NSURLEffectiveIconKey ]
+																	 options:NSDirectoryEnumerationSkipsSubdirectoryDescendants
+ | NSDirectoryEnumerationSkipsPackageDescendants | NSDirectoryEnumerationSkipsHiddenFiles
+																	   error:outError];
+	return YES;
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
-{
-	// Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
-	// You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
-	// If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-	NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-	@throw exception;
+- (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView {
+	return self.itemURLs.count;
+}
+
+- (id) attemptToGetValueFromURL:(NSURL *)itemURL forKey:(NSString *)key {
+	id value;
+	NSError *error;
+	if (key)
+		[itemURL getResourceValue:&value forKey:key error:&error];
+	if (error && !value)
+		[[self windowForSheet] presentError:error];
+
+	return value;
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"file" owner:self];
+	NSURL *itemURL = self.itemURLs[row];
+	cellView.objectValue = itemURL;
+	cellView.imageView.image = [self attemptToGetValueFromURL:itemURL forKey:NSURLEffectiveIconKey];
+	cellView.textField.stringValue = [self attemptToGetValueFromURL:itemURL forKey:NSURLNameKey];
+	return cellView;
+}
+
+- (void) tableViewSelectionDidChange:(NSNotification *)notification {
+	NSTableView *tableView = notification.object;
+	NSIndexSet *indexes = tableView.selectedRowIndexes;
+	if ([indexes count] >= 1)
+		self.currentSelectionIndex = indexes.firstIndex;
+	else
+		self.currentSelectionIndex = 0;
+}
+
+- (BOOL) acceptsPreviewPanelControl:(QLPreviewPanel *)panel {
 	return YES;
+}
+- (void) beginPreviewPanelControl:(QLPreviewPanel *)panel {
+	panel.dataSource = self;
+	panel.delegate = self;
+	panel.currentPreviewItemIndex = self.currentSelectionIndex;
+}
+- (void) endPreviewPanelControl:(QLPreviewPanel *)panel {
+	panel.dataSource = nil;
+	panel.delegate = nil;
+}
+
+- (NSInteger) numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel {
+	return self.itemURLs.count;
+}
+
+- (id <QLPreviewItem>) previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)idx {
+	if (idx >= 0)
+		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:idx - 1] byExtendingSelection:NO];
+	return self.itemURLs[idx];
+}
+
+- (NSRect)previewPanel:(QLPreviewPanel *)panel sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)item {
+	NSURL *URL = (NSURL *)item;
+	NSUInteger idx = [self.itemURLs indexOfObjectIdenticalTo:URL];
+	NSView *rowView = idx <= NSIntegerMax ? [self.tableView rowViewAtRow:idx makeIfNecessary:NO] : nil;
+	NSRect frame = NSZeroRect;
+	if (rowView) {
+		frame = rowView.frame;
+		frame = [self.tableView convertRect:frame toView:nil];
+		frame = [self.tableView.window convertRectToScreen:frame];
+	}
+	return frame;
+}
+
+- (BOOL) validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)anItem {
+	if (sel_isEqual([anItem action], @selector(showQuickLook:))) {
+		return (self.itemURLs.count > 0);
+	}
+	return YES;
+}
+
+- (IBAction)showQuickLook:(id)sender {
+	QLPreviewPanel *previewPanel = [QLPreviewPanel sharedPreviewPanel];
+	[previewPanel updateController];
+	[previewPanel makeKeyAndOrderFront:nil];
 }
 
 @end
