@@ -104,8 +104,11 @@
 }
 
 - (id <QLPreviewItem>) previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)idx {
+	//We assume that if QL is asking us about an item, it's just switched to it (e.g., with the left/right arrows), so we should update our table view's selection to match.
+	//This assumption is bogus (as demonstrated by QL's icon view), but we have no other way to find out which item is selected in the preview panel.
 	if (idx >= 0)
 		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:idx - 1] byExtendingSelection:NO];
+
 	return self.itemURLs[idx];
 }
 
