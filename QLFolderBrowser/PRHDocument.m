@@ -128,7 +128,6 @@
 
 - (IBAction)showQuickLook:(id)sender {
 	QLPreviewPanel *previewPanel = [QLPreviewPanel sharedPreviewPanel];
-	[previewPanel updateController];
 	[previewPanel makeKeyAndOrderFront:nil];
 }
 
