@@ -81,10 +81,13 @@
 - (void) tableViewSelectionDidChange:(NSNotification *)notification {
 	NSTableView *tableView = notification.object;
 	NSIndexSet *indexes = tableView.selectedRowIndexes;
+	QLPreviewPanel *previewPanel = [QLPreviewPanel sharedPreviewPanel];
 	if ([indexes count] >= 1)
 		self.currentSelectionIndex = indexes.firstIndex;
 	else
 		self.currentSelectionIndex = -1;
+	if (previewPanel.dataSource == self)
+		previewPanel.currentPreviewItemIndex = self.currentSelectionIndex;
 }
 
 - (BOOL) acceptsPreviewPanelControl:(QLPreviewPanel *)panel {
