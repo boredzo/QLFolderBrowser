@@ -122,11 +122,8 @@
 	return frame;
 }
 
-- (BOOL) validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)anItem {
-	if (sel_isEqual([anItem action], @selector(showQuickLook:))) {
-		return (self.itemURLs.count > 0);
-	}
-	return YES;
+- (BOOL) hasAnyItems {
+	return (self.itemURLs.count > 0);
 }
 
 - (IBAction)showQuickLook:(id)sender {
