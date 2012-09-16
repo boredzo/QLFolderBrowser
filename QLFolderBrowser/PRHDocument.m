@@ -28,6 +28,7 @@
 - (id)init {
 	self = [super init];
 	if (self) {
+		self.currentSelectionIndex = -1;
 	}
 	return self;
 }
@@ -83,7 +84,7 @@
 	if ([indexes count] >= 1)
 		self.currentSelectionIndex = indexes.firstIndex;
 	else
-		self.currentSelectionIndex = 0;
+		self.currentSelectionIndex = -1;
 }
 
 - (BOOL) acceptsPreviewPanelControl:(QLPreviewPanel *)panel {
