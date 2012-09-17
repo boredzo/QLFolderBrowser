@@ -75,6 +75,27 @@
 	cellView.objectValue = itemURL;
 	cellView.imageView.image = [self attemptToGetValueFromURL:itemURL forKey:NSURLEffectiveIconKey];
 	cellView.textField.stringValue = [self attemptToGetValueFromURL:itemURL forKey:NSURLNameKey];
+
+	NSDictionary *thumbnailOptions = @{
+		//Causes a crash on 10.8.0.
+//		(__bridge NSString *)kQLThumbnailOptionIconModeKey: @YES,
+		(__bridge NSString *)kQLThumbnailOptionScaleFactorKey : @([cellView.imageView.window userSpaceScaleFactor])
+	};
+	NSSize thumbnailSize = cellView.imageView.frame.size;
+	QLThumbnailRef thumbnail = QLThumbnailCreate(kCFAllocatorDefault, (__bridge CFURLRef)itemURL, thumbnailSize, (__bridge CFDictionaryRef)thumbnailOptions);
+	QLThumbnailDispatchAsync(thumbnail, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, /*flags*/ 0), ^{
+		CGImageRef thumbnailImage = QLThumbnailCopyImage(thumbnail);
+		if (thumbnailImage) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				cellView.imageView.image = [[NSImage alloc] initWithCGImage:thumbnailImage size:thumbnailSize];
+
+				CGImageRelease(thumbnailImage);
+			});
+		}
+
+		CFRelease(thumbnail);
+	});
+
 	return cellView;
 }
 
